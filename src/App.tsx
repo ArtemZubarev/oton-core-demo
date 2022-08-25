@@ -15,7 +15,7 @@ export const ThemeContext = createContext(theme);
 
 function App() {
   return (
-    <div className="App">
+    <div className="CoreApp">
       <ThemeContext.Provider value={{theme}}>
         <OtonHeader/>
       </ThemeContext.Provider>
