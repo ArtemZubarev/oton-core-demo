@@ -1,3 +1,5 @@
+import {config} from "../App";
+
 interface IFetchProps {
   url: string;
   data: {
@@ -5,22 +7,25 @@ interface IFetchProps {
   }
 }
 
+const defaultOptions = {
+  method: 'POST', // *GET, POST, PUT, DELETE, etc.
+  mode: 'cors', // no-cors, *cors, same-origin
+  cache: 'no-cache',
+  credentials: 'same-origin',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  redirect: 'follow',
+  referrerPolicy: 'no-referrer', // no-referrer, *client
+};
+
 const commonFetch = async ({url, data}: IFetchProps) => {
-  const baseUrl = 'https://easyfront.xt.lv';
+  const baseUrl = config.api.baseUrl || '';
 
   const response = await fetch(baseUrl + url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: 'follow',
-    referrerPolicy: 'no-referrer', // no-referrer, *client
+    ...defaultOptions,
     body: JSON.stringify(data)
-  });
+  } as RequestInit);
 
   return await response.json();
 }
