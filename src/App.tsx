@@ -1,8 +1,7 @@
 import React, {createContext} from 'react';
 import './App.css';
 import UserInfo from './components/UserInfo';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import { ThemeOptions } from '@mui/system';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SampleHeader from './components/SampleHeader';
 
 declare global {
