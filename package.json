@@ -24,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:federation": "webpack --mode development",
+    "start:federation": "webpack serve --open --mode development"
   },
   "eslintConfig": {
     "extends": [
@@ -43,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ts-loader": "^9.3.1",
+    "webpack-cli": "^4.10.0"
   }
 }
